@@ -1,0 +1,24 @@
+.bg{
+  height: 500px;
+  /* background-image: url(./img/bg.jpg); */
+  background-size: cover;
+  background-position: center;
+}
+.slider{
+  height: 500px;
+  background-image: url(../public/img/slider.jpg);
+  background-size: cover;
+  background-position: center;
+}
+img{
+  width: 80%;
+}
+.col-md-6 img{
+  width: 100%;
+}
+.c1{
+  text-align: center;
+}
+.c1:hover{
+  color: green;
+}
