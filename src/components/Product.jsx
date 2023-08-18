@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Product = (props) => {
   const navigate = useNavigate();
-  console.log(props);
-  const {id,title, imgUrl, price} = props.data;
+  const {id, title, imgUrl, price} = props.data;
+  // console.log(id);
   return (
      <div className='col-md-4' >
        <div className='c1' onClick={()=>navigate('/detail/'+id)}>
