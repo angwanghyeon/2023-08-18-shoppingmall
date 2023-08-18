@@ -12,6 +12,8 @@ const user = createSlice({
     }
   }
 });
+export let {changeName, increase} = user.actions;
+
 
 const cart = createSlice({
   name:'cart',
@@ -49,7 +51,36 @@ const cart = createSlice({
       }else if(state[number].count === 0) {
         alert('재고가 없습니다 슈볼탱아')
       }
+    },
+    deleteItem(state, action){
+      let num = state.findIndex((a) => {
+        return a.id === action.payload
+      })
+      state.splice(num, 1);
+    },
+    addItem(state, action){
+      const num = state.findIndex((a) => 
+        a.id === action.payload
+      )
+      if(num !== -1){
+        //아이템이 존재하면 더해주고
+        state[num].count++
+      }else {
+        //아이템이 존재하지 않으면 새로 푸쉬
+        state.push(action.payload);
+      }
+    },
+    sortName(state, action){
+      state.sort((a, b) => (a.name > b.name ? 1 : -1))
     }
   }
 })
 
+export let {addCount, decreaseCount, deleteItem, addItem, sortName} = cart.actions;
+
+export default configureStore({
+  reducer: {
+    user: user.reducer, 
+    cart: cart.reducer
+  }
+})
